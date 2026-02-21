@@ -505,6 +505,15 @@ For bugs and feature requests, please open an issue on [GitHub](https://github.c
 
 ---
 
+## 🤝 Contributors
+
+| # | Name |
+|---|------|
+| 1 | **PURNA SAI VENKAT GODAVARTHI** |
+| 2 | **VEDIKA VEERAVALLI** |
+
+---
+
 ## 👨‍💻 Author
 
 **Sunay Potnuru**
