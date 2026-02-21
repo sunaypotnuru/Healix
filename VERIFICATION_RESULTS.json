@@ -1,0 +1,389 @@
+{
+  "timestamp": "2026-02-22T02:13:55.112583",
+  "duration_seconds": 9.866505,
+  "total_tests": 54,
+  "passed": 48,
+  "failed": 6,
+  "success_rate": 88.88888888888889,
+  "results": [
+    {
+      "category": "Environment",
+      "test": "Docker Installed",
+      "status": "\u2705 PASS",
+      "details": "Docker version 29.2.0, build 0b9d198",
+      "timestamp": "2026-02-22T02:13:45.893060"
+    },
+    {
+      "category": "Environment",
+      "test": "Docker Compose Installed",
+      "status": "\u2705 PASS",
+      "details": "Docker Compose version v5.0.2",
+      "timestamp": "2026-02-22T02:13:45.977223"
+    },
+    {
+      "category": "Environment",
+      "test": "Docker Daemon Running",
+      "status": "\u274c FAIL",
+      "details": "Daemon not responding",
+      "timestamp": "2026-02-22T02:13:46.643554"
+    },
+    {
+      "category": "Docker Compose",
+      "test": "docker-compose.yml Exists",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:46.643554"
+    },
+    {
+      "category": "API Endpoints",
+      "test": "Backend Health Check",
+      "status": "\u274c FAIL",
+      "details": "HTTP Failed",
+      "timestamp": "2026-02-22T02:13:47.905661"
+    },
+    {
+      "category": "API Endpoints",
+      "test": "Swagger UI",
+      "status": "\u274c FAIL",
+      "details": "HTTP Failed",
+      "timestamp": "2026-02-22T02:13:48.210321"
+    },
+    {
+      "category": "API Endpoints",
+      "test": "AI Service Health",
+      "status": "\u274c FAIL",
+      "details": "HTTP Failed",
+      "timestamp": "2026-02-22T02:13:50.501630"
+    },
+    {
+      "category": "API Endpoints",
+      "test": "Translation Service",
+      "status": "\u274c FAIL",
+      "details": "HTTP Failed",
+      "timestamp": "2026-02-22T02:13:52.787790"
+    },
+    {
+      "category": "API Endpoints",
+      "test": "Frontend",
+      "status": "\u274c FAIL",
+      "details": "HTTP Failed",
+      "timestamp": "2026-02-22T02:13:55.080498"
+    },
+    {
+      "category": "Database Config",
+      "test": ".env File Exists",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.080498"
+    },
+    {
+      "category": "Database Config",
+      "test": "Supabase URL Configured",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.090007"
+    },
+    {
+      "category": "Database Config",
+      "test": "Supabase Service Key Configured",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.090007"
+    },
+    {
+      "category": "Frontend Build",
+      "test": "package.json Exists",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.090007"
+    },
+    {
+      "category": "Frontend Build",
+      "test": "Dependencies Installed",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.090007"
+    },
+    {
+      "category": "Frontend Build",
+      "test": "Production Build Exists",
+      "status": "\u2705 PASS",
+      "details": "dist/ directory found",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Backend Imports",
+      "test": "app/main.py Exists",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Backend Imports",
+      "test": "requirements.txt Exists",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "AI Service",
+      "test": "api.py Exists",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "AI Service",
+      "test": "Model File Exists",
+      "status": "\u2705 PASS",
+      "details": "best_enhanced.h5 (4.2MB)",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Configuration",
+      "test": "Docker Compose Configuration",
+      "status": "\u2705 PASS",
+      "details": "(914 bytes)",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Configuration",
+      "test": "Environment Variables",
+      "status": "\u2705 PASS",
+      "details": "(1773 bytes)",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Configuration",
+      "test": "Environment Template",
+      "status": "\u2705 PASS",
+      "details": "(6614 bytes)",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Configuration",
+      "test": "Main Documentation",
+      "status": "\u2705 PASS",
+      "details": "(18256 bytes)",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Configuration",
+      "test": "Deployment Guide",
+      "status": "\u2705 PASS",
+      "details": "(12757 bytes)",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Configuration",
+      "test": "Verification Checklist",
+      "status": "\u2705 PASS",
+      "details": "(18256 bytes)",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Configuration",
+      "test": "Database Schema",
+      "status": "\u2705 PASS",
+      "details": "(11395 bytes)",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Documentation",
+      "test": "README.md Exists",
+      "status": "\u2705 PASS",
+      "details": "15,812 bytes",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Documentation",
+      "test": "README.md - 'Quick Start' Section",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Documentation",
+      "test": "README.md - 'Architecture' Section",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Documentation",
+      "test": "README.md - 'Troubleshooting' Section",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Documentation",
+      "test": "DEPLOYMENT_GUIDE.md Exists",
+      "status": "\u2705 PASS",
+      "details": "12,125 bytes",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Documentation",
+      "test": "DEPLOYMENT_GUIDE.md - 'Local Development' Section",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Documentation",
+      "test": "DEPLOYMENT_GUIDE.md - 'Docker' Section",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Documentation",
+      "test": "DEPLOYMENT_GUIDE.md - 'Production' Section",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Documentation",
+      "test": "VERIFICATION_CHECKLIST.md Exists",
+      "status": "\u2705 PASS",
+      "details": "17,461 bytes",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Documentation",
+      "test": "VERIFICATION_CHECKLIST.md - 'Authentication' Section",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Documentation",
+      "test": "VERIFICATION_CHECKLIST.md - 'Patient' Section",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Documentation",
+      "test": "VERIFICATION_CHECKLIST.md - 'Doctor' Section",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.092633"
+    },
+    {
+      "category": "Documentation",
+      "test": "VERIFICATION_CHECKLIST.md - 'Admin' Section",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.100176"
+    },
+    {
+      "category": "Documentation",
+      "test": "FINAL_REPORT.md Exists",
+      "status": "\u2705 PASS",
+      "details": "18,179 bytes",
+      "timestamp": "2026-02-22T02:13:55.100176"
+    },
+    {
+      "category": "Documentation",
+      "test": "FINAL_REPORT.md - 'Status' Section",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.100176"
+    },
+    {
+      "category": "Documentation",
+      "test": "FINAL_REPORT.md - 'Verification' Section",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.100176"
+    },
+    {
+      "category": "Documentation",
+      "test": "FINAL_REPORT.md - 'Recommendations' Section",
+      "status": "\u2705 PASS",
+      "details": "",
+      "timestamp": "2026-02-22T02:13:55.100176"
+    },
+    {
+      "category": "Scripts",
+      "test": "Windows Quick Start Script",
+      "status": "\u2705 PASS",
+      "details": "(5890 bytes)",
+      "timestamp": "2026-02-22T02:13:55.100176"
+    },
+    {
+      "category": "Scripts",
+      "test": "macOS/Linux Quick Start Script",
+      "status": "\u2705 PASS",
+      "details": "(5760 bytes)",
+      "timestamp": "2026-02-22T02:13:55.100176"
+    },
+    {
+      "category": "Source Code",
+      "test": "React Entry Point",
+      "status": "\u2705 PASS",
+      "details": "(457 bytes)",
+      "timestamp": "2026-02-22T02:13:55.100176"
+    },
+    {
+      "category": "Source Code",
+      "test": "API Client",
+      "status": "\u2705 PASS",
+      "details": "(5789 bytes)",
+      "timestamp": "2026-02-22T02:13:55.100176"
+    },
+    {
+      "category": "Source Code",
+      "test": "Supabase Setup",
+      "status": "\u2705 PASS",
+      "details": "(5454 bytes)",
+      "timestamp": "2026-02-22T02:13:55.100176"
+    },
+    {
+      "category": "Source Code",
+      "test": "State Management",
+      "status": "\u2705 PASS",
+      "details": "(9774 bytes)",
+      "timestamp": "2026-02-22T02:13:55.100176"
+    },
+    {
+      "category": "Source Code",
+      "test": "FastAPI App",
+      "status": "\u2705 PASS",
+      "details": "(2280 bytes)",
+      "timestamp": "2026-02-22T02:13:55.100176"
+    },
+    {
+      "category": "Source Code",
+      "test": "Patient Routes",
+      "status": "\u2705 PASS",
+      "details": "(12075 bytes)",
+      "timestamp": "2026-02-22T02:13:55.100176"
+    },
+    {
+      "category": "Source Code",
+      "test": "Doctor Routes",
+      "status": "\u2705 PASS",
+      "details": "(6444 bytes)",
+      "timestamp": "2026-02-22T02:13:55.100176"
+    },
+    {
+      "category": "Source Code",
+      "test": "Admin Routes",
+      "status": "\u2705 PASS",
+      "details": "(3595 bytes)",
+      "timestamp": "2026-02-22T02:13:55.100176"
+    },
+    {
+      "category": "Source Code",
+      "test": "ML Pipeline",
+      "status": "\u2705 PASS",
+      "details": "(13745 bytes)",
+      "timestamp": "2026-02-22T02:13:55.100176"
+    }
+  ],
+  "status": "ISSUES_FOUND"
+}

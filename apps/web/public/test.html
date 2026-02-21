@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><title>NetraAI Diagnostic Test</title></head>
+<body style="background:#111;color:#0f0;font-family:monospace;padding:40px">
+<h1>✅ NetraAI Server is Working!</h1>
+<p>If you can see this page, the Vite dev server is running correctly.</p>
+<p>The main app loads at: <a href="/" style="color:#0ff">http://localhost:5173/</a></p>
+<div id="status" style="margin-top:20px"></div>
+<script>
+  const el = document.getElementById('status');
+  el.innerHTML = '<p>⏳ Testing API connection...</p>';
+  fetch('http://localhost:8000/health')
+    .then(r => r.json())
+    .then(d => { el.innerHTML = '<p>✅ Backend API: ' + JSON.stringify(d) + '</p>'; })
+    .catch(e => { el.innerHTML = '<p>❌ Backend API: ' + e.message + '</p>'; });
+</script>
+</body>
+</html>

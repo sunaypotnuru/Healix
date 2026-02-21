@@ -1,0 +1,8 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+
+/* Accessibility Styles */
+.high-contrast { filter: contrast(150%) saturate(120%); }
+.large-text { font-size: 115% !important; }

@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./services/core
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./.env
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/run/secrets/gcp-key.json
+      - ANEMIA_API_URL=http://anemia-service:8001
+    secrets:
+      - gcp-key.json
+
+  frontend:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  anemia-service:
+    build:
+      context: ./services/anemia
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+
+  libretranslate:
+    image: libretranslate/libretranslate:latest
+    container_name: netrai-translator
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    command: --load-only en,hi,ta,te,kn,ml,pa,bn,gu,mr,or
+
+secrets:
+  gcp-key.json:
+    file: ./gcp-key.json
