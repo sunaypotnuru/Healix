@@ -62,10 +62,8 @@ export default function NavbarMain() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? "bg-white/80 backdrop-blur-xl shadow-lg border-b border-gray-100"
-          : isHomePage
-            ? "bg-transparent"
-            : "bg-white/60 backdrop-blur-md"
+          ? "bg-white/90 backdrop-blur-xl shadow-lg border-b border-gray-100"
+          : "bg-white/70 backdrop-blur-md border-b border-gray-100/50"
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
