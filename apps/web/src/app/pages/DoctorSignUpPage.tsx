@@ -58,51 +58,77 @@ export default function DoctorSignUpPage() {
 
     return (
         <div className="min-h-screen pt-20 pb-12 px-6 bg-gradient-to-br from-[#F0F9FF] via-white to-[#E0F2FE] flex items-center justify-center relative overflow-hidden">
-            {/* Background decorations */}
+            {/* Background shapes */}
             <div className="absolute top-20 right-20 w-72 h-72 bg-[#0EA5E9]/5 rounded-full blur-3xl" />
             <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#0D9488]/5 rounded-full blur-3xl" />
 
-            {/* Success State */}
+            {/* Success State - Pending Admin Approval */}
             {submitted ? (
-                <div className="w-full max-w-lg relative z-10">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="w-full max-w-lg relative z-10"
+                >
                     <Card className="p-8 shadow-2xl backdrop-blur-sm bg-white/90 border border-white/50 text-center">
-                        <div className="w-20 h-20 bg-gradient-to-br from-[#22C55E] to-[#16A34A] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <motion.div
+                            className="w-20 h-20 bg-gradient-to-br from-[#22C55E] to-[#16A34A] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                        >
                             <Check className="w-10 h-10 text-white" />
-                        </div>
-                        <h2 className="text-3xl font-bold text-[#0F172A] mb-3">Application Submitted!</h2>
-                        <p className="text-lg text-[#64748B] mb-6 leading-relaxed">
+                        </motion.div>
+                        <motion.h2 className="text-3xl font-bold text-[#0F172A] mb-3" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
+                            Application Submitted!
+                        </motion.h2>
+                        <motion.p className="text-lg text-[#64748B] mb-6 leading-relaxed" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>
                             Thank you for applying to join the Netra AI medical network.
-                        </p>
-                        <div className="p-4 bg-[#F59E0B]/10 rounded-xl border border-[#F59E0B]/20 mb-6">
+                        </motion.p>
+                        <motion.div className="p-4 bg-[#F59E0B]/10 rounded-xl border border-[#F59E0B]/20 mb-6" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
                             <p className="text-sm text-[#92400E] font-medium">
                                 ⏳ Your application is <strong>pending admin review</strong>. You will be able to access the
                                 platform once an administrator approves your registration.
                             </p>
-                        </div>
-                        <p className="text-sm text-[#64748B] mb-8">
+                        </motion.div>
+                        <motion.p className="text-sm text-[#64748B] mb-8" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>
                             This process usually takes 24-48 hours. You will receive an email notification
                             once your application is approved.
-                        </p>
-                        <Button
-                            onClick={() => navigate("/")}
-                            className="bg-gradient-to-r from-[#0EA5E9] to-[#0284C7] text-white px-8 py-5 text-lg"
-                        >
-                            Return to Home
-                        </Button>
+                        </motion.p>
+                        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}>
+                            <Button
+                                onClick={() => navigate("/")}
+                                className="bg-gradient-to-r from-[#0EA5E9] to-[#0284C7] text-white px-8 py-5 text-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+                            >
+                                Return to Home
+                            </Button>
+                        </motion.div>
                     </Card>
-                </div>
+                </motion.div>
             ) : (
 
-                <div
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7 }}
                     className="w-full max-w-lg relative z-10"
                 >
                     <Card className="p-8 shadow-2xl backdrop-blur-sm bg-white/80 border border-white/50">
                         <div className="flex flex-col items-center mb-6">
-                            <div className="w-16 h-16 bg-gradient-to-br from-[#0EA5E9] to-[#0284C7] rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                            <motion.div
+                                className="w-16 h-16 bg-gradient-to-br from-[#0EA5E9] to-[#0284C7] rounded-2xl flex items-center justify-center mb-4 shadow-lg"
+                                initial={{ scale: 0.8, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                transition={{ delay: 0.2, type: "spring" }}
+                            >
                                 <Stethoscope className="w-8 h-8 text-white" />
-                            </div>
-                            <h1 className="text-3xl font-bold text-[#0F172A]">Apply to Join</h1>
-                            <p className="text-[#64748B] mt-1">Apply to the Netra AI medical network</p>
+                            </motion.div>
+                            <motion.h1 className="text-3xl font-bold text-[#0F172A]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
+                                Apply to Join
+                            </motion.h1>
+                            <motion.p className="text-[#64748B] mt-1" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}>
+                                Apply to the Netra AI medical network
+                            </motion.p>
                         </div>
 
                         {/* Step indicator */}
@@ -124,106 +150,108 @@ export default function DoctorSignUpPage() {
                         </div>
 
                         <form onSubmit={handleSubmit}>
-                            {currentStep === 0 && (
-                                <div className="space-y-4">
-                                    <div className="space-y-2">
-                                        <Label>Full Name</Label>
-                                        <div className="relative">
-                                            <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
-                                            <Input placeholder="Dr. John Smith" value={formData.full_name} onChange={(e) => updateField("full_name", e.target.value)} className="pl-11" required />
+                            <AnimatePresence mode="wait">
+                                {currentStep === 0 && (
+                                    <motion.div key="step0" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
+                                        <div className="space-y-2">
+                                            <Label>Full Name</Label>
+                                            <div className="relative">
+                                                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
+                                                <Input placeholder="Dr. John Smith" value={formData.full_name} onChange={(e) => updateField("full_name", e.target.value)} className="pl-11" required />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label>Email</Label>
-                                        <div className="relative">
-                                            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
-                                            <Input type="email" placeholder="doctor@hospital.com" value={formData.email} onChange={(e) => updateField("email", e.target.value)} className="pl-11" required />
+                                        <div className="space-y-2">
+                                            <Label>Email</Label>
+                                            <div className="relative">
+                                                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
+                                                <Input type="email" placeholder="doctor@hospital.com" value={formData.email} onChange={(e) => updateField("email", e.target.value)} className="pl-11" required />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label>Phone</Label>
-                                        <div className="relative">
-                                            <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
-                                            <Input type="tel" placeholder="+91 98765 43210" value={formData.phone} onChange={(e) => updateField("phone", e.target.value)} className="pl-11" />
+                                        <div className="space-y-2">
+                                            <Label>Phone</Label>
+                                            <div className="relative">
+                                                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
+                                                <Input type="tel" placeholder="+91 98765 43210" value={formData.phone} onChange={(e) => updateField("phone", e.target.value)} className="pl-11" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label>Password</Label>
-                                        <div className="relative">
-                                            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
-                                            <Input type="password" placeholder="••••••••" value={formData.password} onChange={(e) => updateField("password", e.target.value)} className="pl-11" required minLength={6} />
+                                        <div className="space-y-2">
+                                            <Label>Password</Label>
+                                            <div className="relative">
+                                                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
+                                                <Input type="password" placeholder="••••••••" value={formData.password} onChange={(e) => updateField("password", e.target.value)} className="pl-11" required minLength={6} />
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            )}
+                                    </motion.div>
+                                )}
 
-                            {currentStep === 1 && (
-                                <div className="space-y-4">
-                                    <div className="space-y-2">
-                                        <Label>Specialty</Label>
-                                        <Select value={formData.specialty} onValueChange={(v) => updateField("specialty", v)}>
-                                            <SelectTrigger><SelectValue placeholder="Select specialty" /></SelectTrigger>
-                                            <SelectContent>
-                                                <SelectItem value="hematology">Hematology</SelectItem>
-                                                <SelectItem value="general_medicine">General Medicine</SelectItem>
-                                                <SelectItem value="internal_medicine">Internal Medicine</SelectItem>
-                                                <SelectItem value="pediatrics">Pediatrics</SelectItem>
-                                                <SelectItem value="ophthalmology">Ophthalmology</SelectItem>
-                                            </SelectContent>
-                                        </Select>
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label>Years of Experience</Label>
-                                        <Input type="number" placeholder="e.g. 10" value={formData.experience_years} onChange={(e) => updateField("experience_years", e.target.value)} min={0} />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label>Languages Spoken</Label>
-                                        <div className="relative">
-                                            <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
-                                            <Input placeholder="English, Hindi, Telugu..." value={formData.languages.join(", ")} onChange={(e) => updateField("languages", e.target.value.split(",").map(l => l.trim()))} className="pl-11" />
+                                {currentStep === 1 && (
+                                    <motion.div key="step1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
+                                        <div className="space-y-2">
+                                            <Label>Specialty</Label>
+                                            <Select value={formData.specialty} onValueChange={(v) => updateField("specialty", v)}>
+                                                <SelectTrigger><SelectValue placeholder="Select specialty" /></SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="hematology">Hematology</SelectItem>
+                                                    <SelectItem value="general_medicine">General Medicine</SelectItem>
+                                                    <SelectItem value="internal_medicine">Internal Medicine</SelectItem>
+                                                    <SelectItem value="pediatrics">Pediatrics</SelectItem>
+                                                    <SelectItem value="ophthalmology">Ophthalmology</SelectItem>
+                                                </SelectContent>
+                                            </Select>
                                         </div>
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label>Bio</Label>
-                                        <textarea placeholder="Tell patients about your expertise..." value={formData.bio} onChange={(e) => updateField("bio", e.target.value)} rows={3}
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:outline-none focus:ring-2 focus:ring-[#0EA5E9]/20 transition-all resize-none bg-[#F8FAFC]" />
-                                    </div>
-                                </div>
-                            )}
+                                        <div className="space-y-2">
+                                            <Label>Years of Experience</Label>
+                                            <Input type="number" placeholder="e.g. 10" value={formData.experience_years} onChange={(e) => updateField("experience_years", e.target.value)} min={0} />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Label>Languages Spoken</Label>
+                                            <div className="relative">
+                                                <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
+                                                <Input placeholder="English, Hindi, Telugu..." value={formData.languages.join(", ")} onChange={(e) => updateField("languages", e.target.value.split(",").map(l => l.trim()))} className="pl-11" />
+                                            </div>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Label>Bio</Label>
+                                            <textarea placeholder="Tell patients about your expertise..." value={formData.bio} onChange={(e) => updateField("bio", e.target.value)} rows={3}
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:outline-none focus:ring-2 focus:ring-[#0EA5E9]/20 transition-all resize-none bg-[#F8FAFC]" />
+                                        </div>
+                                    </motion.div>
+                                )}
 
-                            {currentStep === 2 && (
-                                <div className="space-y-4">
-                                    <div className="space-y-2">
-                                        <Label>Consultation Fee (₹)</Label>
-                                        <div className="relative">
-                                            <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
-                                            <Input type="number" placeholder="500" value={formData.consultation_fee} onChange={(e) => updateField("consultation_fee", e.target.value)} className="pl-11" />
+                                {currentStep === 2 && (
+                                    <motion.div key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
+                                        <div className="space-y-2">
+                                            <Label>Consultation Fee (₹)</Label>
+                                            <div className="relative">
+                                                <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
+                                                <Input type="number" placeholder="500" value={formData.consultation_fee} onChange={(e) => updateField("consultation_fee", e.target.value)} className="pl-11" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label>Available Days</Label>
-                                        <div className="flex flex-wrap gap-2">
-                                            {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
-                                                <button key={day} type="button"
-                                                    className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${formData.available_days.includes(day) ? "bg-[#0EA5E9] text-white shadow-md" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                                                        }`}
-                                                    onClick={() => {
-                                                        const days = formData.available_days.includes(day)
-                                                            ? formData.available_days.filter(d => d !== day)
-                                                            : [...formData.available_days, day];
-                                                        updateField("available_days", days);
-                                                    }}
-                                                >{day}</button>
-                                            ))}
+                                        <div className="space-y-2">
+                                            <Label>Available Days</Label>
+                                            <div className="flex flex-wrap gap-2">
+                                                {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
+                                                    <button key={day} type="button"
+                                                        className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${formData.available_days.includes(day) ? "bg-[#0EA5E9] text-white shadow-md" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                                                            }`}
+                                                        onClick={() => {
+                                                            const days = formData.available_days.includes(day)
+                                                                ? formData.available_days.filter(d => d !== day)
+                                                                : [...formData.available_days, day];
+                                                            updateField("available_days", days);
+                                                        }}
+                                                    >{day}</button>
+                                                ))}
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="p-4 bg-[#0EA5E9]/5 rounded-xl border border-[#0EA5E9]/20 mt-4">
-                                        <p className="text-sm text-[#0F172A]/70">
-                                            You can manage detailed time slots after registration from your dashboard.
-                                        </p>
-                                    </div>
-                                </div>
-                            )}
+                                        <div className="p-4 bg-[#F59E0B]/10 rounded-xl border border-[#F59E0B]/20 mt-4">
+                                            <p className="text-sm text-[#92400E] font-medium">
+                                                ⏳ After submitting, your application will be reviewed by an administrator before you can access the platform.
+                                            </p>
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
 
                             <div className="flex justify-between mt-8 gap-4">
                                 {currentStep > 0 ? (
@@ -250,7 +278,7 @@ export default function DoctorSignUpPage() {
                             </p>
                         </div>
                     </Card>
-                </div>
+                </motion.div>
 
             )}
         </div>
