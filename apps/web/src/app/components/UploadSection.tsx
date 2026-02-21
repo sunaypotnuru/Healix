@@ -70,28 +70,17 @@ export function UploadSection() {
               onDragOver={handleDragOver}
               onDragLeave={handleDragLeave}
               onDrop={handleDrop}
-              className={`relative border-4 border-dashed rounded-3xl p-12 transition-all duration-300 ${
-                isDragging
+              className={`relative border-4 border-dashed rounded-3xl p-12 transition-all duration-300 ${isDragging
                   ? "border-[#0D9488] bg-[#0D9488]/5 scale-105"
                   : "border-gray-300 hover:border-[#0D9488]/50"
-              }`}
+                }`}
             >
               <div className="text-center">
-                <motion.div
-                  animate={{
-                    y: isDragging ? -10 : [0, -10, 0],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="inline-block"
-                >
+                <div className="inline-block transition-transform duration-300 hover:-translate-y-2">
                   <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-[#0D9488] to-[#0EA5E9] rounded-3xl flex items-center justify-center shadow-xl">
                     <Upload className="w-12 h-12 text-white" />
                   </div>
-                </motion.div>
+                </div>
 
                 <h3 className="text-2xl font-bold text-[#0F172A] mb-3">
                   Drop your image here

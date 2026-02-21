@@ -61,23 +61,18 @@ export default function SignUpPage() {
 
   return (
     <div className="min-h-screen pt-20 pb-12 px-6 bg-gradient-to-br from-[#F0FDFA] via-white to-[#CCFBF1] flex items-center justify-center relative overflow-hidden">
-      {/* Floating shapes */}
-      <motion.div className="absolute top-20 left-10 w-72 h-72 bg-[#0D9488]/5 rounded-full blur-3xl"
-        animate={{ y: [0, 30, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} />
-      <motion.div className="absolute bottom-20 right-10 w-80 h-80 bg-[#0EA5E9]/5 rounded-full blur-3xl"
-        animate={{ y: [0, -25, 0] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} />
+      {/* Background shapes - static CSS */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-[#0D9488]/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#0EA5E9]/5 rounded-full blur-3xl" />
 
-      {/* Floating icons */}
+      {/* Floating icons - static */}
       {[
-        { Icon: Eye, x: "12%", y: "25%", delay: 0 },
-        { Icon: Activity, x: "82%", y: "18%", delay: 1.5 },
-      ].map(({ Icon, x, y, delay }, i) => (
-        <motion.div key={i} className="absolute pointer-events-none"
-          style={{ left: x, top: y }}
-          animate={{ y: [0, -15, 0], opacity: [0.04, 0.1, 0.04] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay }}>
+        { Icon: Eye, x: "12%", y: "25%" },
+        { Icon: Activity, x: "82%", y: "18%" },
+      ].map(({ Icon, x, y }, i) => (
+        <div key={i} className="absolute pointer-events-none opacity-[0.06]" style={{ left: x, top: y }}>
           <Icon className="w-10 h-10 text-[#0D9488]" />
-        </motion.div>
+        </div>
       ))}
 
       <motion.div
@@ -90,13 +85,18 @@ export default function SignUpPage() {
           <div className="flex flex-col items-center mb-6">
             <motion.div
               className="w-16 h-16 bg-gradient-to-br from-[#0D9488] to-[#0F766E] rounded-2xl flex items-center justify-center mb-4 shadow-lg"
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2, type: "spring" }}
             >
               <Eye className="w-8 h-8 text-white" />
             </motion.div>
-            <h1 className="text-3xl font-bold text-[#0F172A]">Create Account</h1>
-            <p className="text-[#64748B] mt-1">Join Netra AI as a Patient</p>
+            <motion.h1 className="text-3xl font-bold text-[#0F172A]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
+              Create Account
+            </motion.h1>
+            <motion.p className="text-[#64748B] mt-1" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}>
+              Join Netra AI as a Patient
+            </motion.p>
           </div>
 
           {/* Step indicator */}

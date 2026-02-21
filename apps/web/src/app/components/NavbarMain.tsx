@@ -71,14 +71,12 @@ export default function NavbarMain() {
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <motion.div
-              className="w-9 h-9 rounded-xl flex items-center justify-center shadow-md"
+            <div
+              className="w-9 h-9 rounded-xl flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-110"
               style={{ background: `linear-gradient(135deg, ${accentColor}, ${isDoctor ? "#0284C7" : "#0F766E"})` }}
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
               <Eye className="w-5 h-5 text-white" />
-            </motion.div>
+            </div>
             <span className="text-xl font-bold text-[#0F172A]">Netra AI</span>
           </Link>
 

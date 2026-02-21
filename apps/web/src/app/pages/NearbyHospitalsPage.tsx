@@ -41,19 +41,14 @@ export default function NearbyHospitalsPage() {
                             <div className="absolute top-[50%] left-[70%] w-3 h-3 rounded-full bg-[#F43F5E]" />
                             <div className="absolute top-[70%] left-[55%] w-3 h-3 rounded-full bg-[#F43F5E]" />
                             {/* Animated user location */}
-                            <motion.div
-                                className="absolute top-[45%] left-[45%] w-4 h-4 rounded-full bg-[#0EA5E9]"
-                                animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-                                transition={{ duration: 2, repeat: Infinity }}
+                            <div
+                                className="absolute top-[45%] left-[45%] w-4 h-4 rounded-full bg-[#0EA5E9] animate-ping"
                             />
                         </div>
                         <div className="text-center relative z-10">
-                            <motion.div
-                                animate={{ y: [0, -5, 0] }}
-                                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                            >
+                            <div>
                                 <MapPin className="w-12 h-12 text-[#0D9488] mx-auto mb-3" />
-                            </motion.div>
+                            </div>
                             <p className="text-[#0F172A] font-semibold">Map View</p>
                             <p className="text-sm text-[#64748B]">Showing hospitals within 10 km of your location</p>
                             <Button className="mt-3 bg-[#0D9488] hover:bg-[#0F766E] text-white" size="sm">
