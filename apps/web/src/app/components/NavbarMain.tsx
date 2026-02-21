@@ -80,12 +80,12 @@ export default function NavbarMain() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
-            {!isAuth && !isLoginPage && (
+            {(!isAuth || isHomePage) && !isLoginPage && (
               <>
                 {["Features", "How It Works", "About", "Contact"].map((item) => (
                   <a
                     key={item}
-                    href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                    href={isHomePage ? `#${item.toLowerCase().replace(/\s+/g, "-")}` : `/#${item.toLowerCase().replace(/\s+/g, "-")}`}
                     className="px-4 py-2 text-sm font-medium text-[#64748B] hover:text-[#0F172A] transition-colors rounded-lg hover:bg-gray-100"
                   >
                     {item}
@@ -93,7 +93,7 @@ export default function NavbarMain() {
                 ))}
               </>
             )}
-            {isAuth && navItems.map((item) => (
+            {isAuth && !isHomePage && navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
@@ -112,23 +112,41 @@ export default function NavbarMain() {
           {/* Right side */}
           <div className="flex items-center gap-3">
             {!isAuth && !isLoginPage && (
-              <Button
-                onClick={() => navigate("/login")}
-                className="hidden md:flex text-white font-medium"
-                style={{ background: `linear-gradient(135deg, ${accentColor}, ${isDoctor ? "#0284C7" : "#0F766E"})` }}
-              >
-                Get Started
-              </Button>
+              <>
+                <Button
+                  variant="ghost"
+                  onClick={() => navigate("/login")}
+                  className="hidden md:flex text-[#0F172A] font-medium"
+                >
+                  Log In
+                </Button>
+                <Button
+                  onClick={() => navigate("/login")}
+                  className="hidden md:flex text-white font-medium shadow-md shadow-[#0D9488]/20"
+                  style={{ background: `linear-gradient(135deg, ${accentColor}, ${isDoctor ? "#0284C7" : "#0F766E"})` }}
+                >
+                  Get Started
+                </Button>
+              </>
             )}
             {isAuth && (
               <div className="hidden md:flex items-center gap-2">
                 <Button
+                  variant="default"
+                  size="sm"
+                  onClick={() => navigate(user?.role === 'doctor' ? '/doctor/dashboard' : '/patient/dashboard')}
+                  className="text-white shadow-sm"
+                  style={{ background: `linear-gradient(135deg, ${accentColor}, ${isDoctor ? "#0284C7" : "#0F766E"})` }}
+                >
+                  <LayoutDashboard className="w-4 h-4 mr-1" /> Dashboard
+                </Button>
+                <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => navigate(isDoctor ? "/doctor/profile" : "/patient/profile")}
+                  onClick={() => navigate(user?.role === 'doctor' ? "/doctor/profile" : "/patient/profile")}
                   className="text-[#64748B]"
                 >
-                  <User className="w-4 h-4 mr-1" /> Profile
+                  <User className="w-4 h-4" />
                 </Button>
                 <Button
                   variant="outline"
