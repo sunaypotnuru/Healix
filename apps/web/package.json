@@ -1,7 +1,9 @@
 {
-  "name": "@figma/my-make-file",
+  "name": "netrai-healix",
   "private": true,
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "NetraAI (Healix) - AI-Powered Telemedicine & Anemia Detection Platform",
+  "author": "Sunay Potnuru <sunaypotnuru@gmail.com> (https://github.com/sunaypotnuru)",
   "type": "module",
   "scripts": {
     "build": "vite build",

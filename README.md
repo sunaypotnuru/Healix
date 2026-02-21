@@ -1,6 +1,9 @@
-# 🏥 NetraAI - Intelligent Telemedicine & AI-Powered Anemia Detection
+# 🏥 NetraAI (Healix) - Intelligent Telemedicine & AI-Powered Anemia Detection
 
 A **production-grade, full-stack telemedicine platform** with real-time video consultations, AI-powered anemia detection via conjunctiva analysis, multilingual support, and comprehensive appointment management.
+
+> **Author:** Sunay Potnuru ([@sunaypotnuru](https://github.com/sunaypotnuru))  
+> **Repository:** [github.com/sunaypotnuru/Healix](https://github.com/sunaypotnuru/Healix)
 
 ---
 
@@ -496,47 +499,19 @@ See `infrastructure/database/supabase_schema.sql` for complete schema.
 
 ---
 
-## 🤝 Contributing
-
-See individual service README files:
-
-- `apps/web/README.md` - Frontend
-- `services/core/README.md` - Backend (if available)
-- `services/anemia/README.md` - AI Service
-
----
-
-## 📄 License
-
-MIT License - See LICENSE file for details
-
----
-
 ## 🆘 Support & Issues
 
-For bugs and feature requests, please:
-
-1. Check existing issues
-2. Provide detailed reproduction steps
-3. Include environment info (OS, Docker version, etc.)
-4. Attach relevant error logs
+For bugs and feature requests, please open an issue on [GitHub](https://github.com/sunaypotnuru/Healix/issues).
 
 ---
 
-**Built with ❤️ for healthcare**
+## 👨‍💻 Author
 
-### [Services] Anemia Engine
+**Sunay Potnuru**
 
-A high-performance Python microservice that extracts the lower conjunctiva from eye images and predicts anemia severity using a custom-trained CNN model.
+- GitHub: [@sunaypotnuru](https://github.com/sunaypotnuru)
+- Email: sunaypotnuru@gmail.com
 
-### [Infrastructure] Self-Hosted Translation
+---
 
-Utilizes LibreTranslate for private, real-time translation during consultations, supporting Hindi, Tamil, Telugu, and other major Indian languages.
-
-## 🔑 Environment Setup
-
-Copy `.env.example` to `.env` and fill in your Supabase and LiveKit credentials.
-
-## ⚖️ License
-
-MIT
+**Built with ❤️ for better healthcare**
