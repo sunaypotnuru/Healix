@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import Root from "./pages/Root";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
+import SignUpRolePage from "./pages/SignUpRolePage";
 import PatientLoginPage from "./pages/PatientLoginPage";
 import DoctorLoginPage from "./pages/DoctorLoginPage";
 import AdminLoginPage from "./pages/AdminLoginPage";
@@ -41,6 +42,7 @@ export const router = createBrowserRouter([
             { path: "login/patient", Component: PatientLoginPage },
             { path: "login/doctor", Component: DoctorLoginPage },
             { path: "login/admin", Component: AdminLoginPage },
+            { path: "signup", Component: SignUpRolePage },
             { path: "signup/patient", Component: SignUpPage },
             { path: "signup/doctor", Component: DoctorSignUpPage },
 

@@ -4,8 +4,24 @@ import { createClient, SupabaseClient } from '@supabase/supabase-js';
 const supabaseUrl: string = import.meta.env.VITE_SUPABASE_URL || 'https://your-project.supabase.co';
 const supabaseAnonKey: string = import.meta.env.VITE_SUPABASE_ANON_KEY || 'your-anon-key';
 
-// Create Supabase client
-export const supabase: SupabaseClient = createClient(supabaseUrl, supabaseAnonKey);
+// Validate configuration on startup
+if (supabaseUrl === 'https://your-project.supabase.co' || !supabaseAnonKey || supabaseAnonKey === 'your-anon-key') {
+  console.error('[Supabase] ❌ Configuration not found! Please check your .env file.');
+  console.error('[Supabase] VITE_SUPABASE_URL:', supabaseUrl);
+  console.error('[Supabase] VITE_SUPABASE_ANON_KEY:', supabaseAnonKey ? '[SET]' : '[NOT SET]');
+} else {
+  console.log('[Supabase] ✅ Configuration loaded successfully');
+  console.log('[Supabase] URL:', supabaseUrl);
+}
+
+// Create Supabase client with auth persistence
+export const supabase: SupabaseClient = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    persistSession: true,
+    autoRefreshToken: true,
+    detectSessionInUrl: true,
+  },
+});
 
 // Check if Supabase is configured
 export const isSupabaseConfigured = (): boolean => {

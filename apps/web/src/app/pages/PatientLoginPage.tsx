@@ -17,12 +17,25 @@ export default function PatientLoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!email || !password) {
+      toast.error("Please enter email and password");
+      return;
+    }
+
+    console.log('[PatientLogin] Starting sign in for:', email);
     const result = await signIn(email, password);
+    
+    console.log('[PatientLogin] Sign in result:', result.success ? 'SUCCESS' : 'FAILED');
+    
     if (result.success) {
       toast.success("Welcome back!");
+      console.log('[PatientLogin] Navigating to dashboard...');
       navigate("/patient/dashboard");
     } else {
-      toast.error(result.error?.message || "Failed to sign in");
+      const errorMsg = result.error?.message || result.error?.toString() || "Failed to sign in";
+      console.error('[PatientLogin] Error:', errorMsg);
+      toast.error(errorMsg);
     }
   };
 

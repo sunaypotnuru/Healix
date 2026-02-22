@@ -71,7 +71,7 @@ export default function HomePage() {
           <div className="text-center mt-16">
             <Button
               size="lg"
-              onClick={() => navigate(user ? "/patient/dashboard" : "/login")}
+              onClick={() => navigate(user ? "/patient/dashboard" : "/signup")}
               className="bg-gradient-to-r from-[#0D9488] to-[#0F766E] text-white px-12 py-6 text-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] relative overflow-hidden group"
             >
               <span className="relative z-10">{user ? "Go to Dashboard" : "Get Started Free"}</span>

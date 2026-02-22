@@ -50,28 +50,42 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         return { success: true, data: { user } };
       }
 
+      console.log('[Auth] Attempting login with:', email);
       const { data, error } = await authAPI.login(email, password);
 
       if (error) {
+        console.error('[Auth] Login failed:', error);
         set({ error: error.message, loading: false });
         return { success: false, error };
       }
 
+      console.log('[Auth] Login successful, user:', data.user.email);
+      
       // Determine role safely
       const role = data.user.user_metadata?.role || 'patient';
 
-      // Fetch profile
+      // Fetch profile with timeout (don't block login on profile fetch)
       let profileData = null;
       try {
-        const pRes = await profileAPI.getProfile(data.user.id, role);
-        if (pRes.data) profileData = pRes.data;
+        const profilePromise = profileAPI.getProfile(data.user.id, role);
+        const timeoutPromise = new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('Profile fetch timeout')), 5000)
+        );
+        
+        const pRes: any = await Promise.race([profilePromise, timeoutPromise]);
+        if (pRes && pRes.data) profileData = pRes.data;
+        console.log('[Auth] Profile loaded successfully');
       } catch (e) {
-        console.warn('Failed to load profile on sign in', e);
+        console.warn('[Auth] Profile fetch failed (non-blocking):', e);
+        // Don't return error - profile is optional for login
       }
 
-      set({ user: { ...data.user, role }, profile: profileData, loading: false });
+      const userData = { ...data.user, role };
+      set({ user: userData, profile: profileData, loading: false });
+      console.log('[Auth] Login complete, redirecting...');
       return { success: true, data };
     } catch (err: any) {
+      console.error('[Auth] Unexpected error during login:', err);
       set({ error: err.message, loading: false });
       return { success: false, error: err };
     }
